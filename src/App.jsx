@@ -57,10 +57,13 @@ const App = () => {
       const search = notes.filter((note) => {
         return note.title.toLowerCase().includes(title.toLowerCase());
       });
-      console.log(search);
-      setResult(search);
+
+      if (search.length < 1) {
+        setResult([]);
+      } else {
+        setResult(search);
+      }
     } else {
-      console.log(notes);
       setResult(notes);
     }
   };
